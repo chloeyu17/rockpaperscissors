@@ -2,6 +2,8 @@ var userChoice;
 
 var computerChoice;
 
+var message;
+
 function user(){
     userChoice = prompt("Do you choose Rock, Paper or Scissors?");
     return userChoice;
@@ -24,21 +26,15 @@ function play(){
 }
 
 function win(){
-    var message = "You win, play again";
-    window.confirm(message);
-    return message;
+    return message = "You win, play again";
 }
 
 function lose(){
-    var message = "You lose, play again";
-    window.confirm(message);
-    return message;
+    return message = "You lose, play again";
 }
 
 function tie(){
-    var message = "You tied, play again";
-    window.confirm(message);
-    return message;
+    return message = "You tied, play again";
 }
 
 function result(){
@@ -49,19 +45,16 @@ function result(){
 function compare(choice1,choice2){
     //tie
     if(choice1===choice2){
-        tie();
-        return;
+        return tie();
     }
     //User chose rock, computer chose scissors
     else if(choice1==="R"){
         if(choice2==="S"){
-            win();
-            return;
+            return win();
         }
         //user chose rock, computer chose paper
         else {
-            lose();
-            return;
+            return lose();
         }
     }
     //user chose paper, computer chose rock

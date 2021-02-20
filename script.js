@@ -1,17 +1,22 @@
-var user_choice;
+var userChoice;
 
-function userChoice(){
-    user_Choice = prompt("Do you choose Rock, Paper or Scissors?");
-    return user_Choice;
+var computerChoice;
+
+function user(){
+    userChoice = prompt("Do you choose Rock, Paper or Scissors?");
+    return userChoice;
 }
 
-var computerChoice = Math.random();
+
+function computer(){
+    computerChoice = Math.random();
 if (computerChoice < 0.34) {
 	computerChoice = "R";
 } else if(computerChoice <= 0.67) {
 	computerChoice = "P";
 } else {
 	computerChoice = "S";
+}
 }
 
 function play(){
@@ -20,46 +25,53 @@ function play(){
 
 function win(){
     var message = "You win, play again";
-    return window.confirm(message);
+    window.confirm(message);
+    return message;
 }
 
 function lose(){
     var message = "You lose, play again";
-    return window.confirm(message);
+    window.confirm(message);
+    return message;
 }
 
 function tie(){
     var message = "You tied, play again";
-    return window.confirm(message);
+    window.confirm(message);
+    return message;
 }
 
 function result(){
-    return window.alert(compare(user_Choice,computerChoice));
+    window.alert(compare(userChoice,computerChoice));
+    return compare(userChoice,computerChoice);
 }
 
 function compare(choice1,choice2){
     //tie
     if(choice1===choice2){
-        return tie();
+        tie();
+        return;
     }
     //User chose rock, computer chose scissors
     else if(choice1==="R"){
         if(choice2==="S"){
-           return win();
+            win();
+            return;
         }
         //user chose rock, computer chose paper
         else {
-            return lose();
+            lose();
+            return;
         }
     }
     //user chose paper, computer chose rock
     else if(choice1==="P"){
         if(choice2==="R"){
-            win();
+            return win();
         }
         //user chose paper, computer chose scissors
         else {
-            lose;
+            return lose;
         }
     }
     //user chose scissors computer chose paper
@@ -79,18 +91,13 @@ function compare(choice1,choice2){
 }
 
 play();
-userChoice();
+computer();
+user();
 result();
 
 
 while(window.confirm("Do you want to play again?")==true){
-    userChoice();
+    computer();
+    user();
     result();
 }
-
-//if (window.confirm("Do you want to play again?")) {
-  //  window.location.reload();
- // }
-
-//for ( as long as confirm = true){ repeat prompt and result}
-

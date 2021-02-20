@@ -1,31 +1,9 @@
-var play = window.confirm("Do you want to play Rock Paper Scisorrs?");
+var user_choice;
 
-var userChoice = prompt("Do you choose rock, paper or scissors?");
-
-function win(){
-    var message = "You win, play again";
-    window.confirm(message);
-    return message;
+function userChoice(){
+    user_Choice = prompt("Do you choose Rock, Paper or Scissors?");
+    return user_Choice;
 }
-
-function lose(){
-    var message = "You lose, play again";
-    window.confirm(message);
-    return message;
-}
-
-function tie(){
-    var message = "You tied, play again";
-    window.confirm(message);
-    return message;
-}
-
-function result(){
-    var compare = this.compare(userChoice,computerChoice);
-    window.alert(compare);
-    return compare;
-}
-
 
 var computerChoice = Math.random();
 if (computerChoice < 0.34) {
@@ -35,19 +13,43 @@ if (computerChoice < 0.34) {
 } else {
 	computerChoice = "S";
 }
-var compare=function(choice1,choice2){
+
+function play(){
+    return window.alert("Let's play Rock Paper Scissors!");
+}
+
+function win(){
+    var message = "You win, play again";
+    return window.confirm(message);
+}
+
+function lose(){
+    var message = "You lose, play again";
+    return window.confirm(message);
+}
+
+function tie(){
+    var message = "You tied, play again";
+    return window.confirm(message);
+}
+
+function result(){
+    return window.alert(compare(user_Choice,computerChoice));
+}
+
+function compare(choice1,choice2){
     //tie
     if(choice1===choice2){
-        tie();
+        return tie();
     }
     //User chose rock, computer chose scissors
     else if(choice1==="R"){
         if(choice2==="S"){
-            win();
+           return win();
         }
         //user chose rock, computer chose paper
         else {
-            lose();
+            return lose();
         }
     }
     //user chose paper, computer chose rock
@@ -76,8 +78,19 @@ var compare=function(choice1,choice2){
     
 }
 
+play();
+userChoice();
 result();
 
-if (window.confirm("Do you want to play again?")) {
-    window.open("index.html", "Thanks for Visiting!");
-  }
+
+while(window.confirm("Do you want to play again?")==true){
+    userChoice();
+    result();
+}
+
+//if (window.confirm("Do you want to play again?")) {
+  //  window.location.reload();
+ // }
+
+//for ( as long as confirm = true){ repeat prompt and result}
+
